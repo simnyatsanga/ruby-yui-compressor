@@ -90,6 +90,7 @@ module YUI #:nodoc:
         full_command = "%s %s" % [command, tempfile.path]
 
         begin
+          puts "Executing YUI JS/CSS Compression command: #{full_command}"
           output = `#{full_command}`
         rescue Exception => e
           # windows shells tend to blow up here when the command fails
