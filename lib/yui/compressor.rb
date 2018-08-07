@@ -14,7 +14,7 @@ module YUI #:nodoc:
     attr_reader :options
 
     def self.default_options #:nodoc:
-      { :charset => "utf-8", :line_break => nil, :verbose => nil }
+      { :charset => "utf-8", :line_break => nil}
     end
 
     def self.compressor_type #:nodoc:
