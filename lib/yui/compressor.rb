@@ -100,6 +100,7 @@ module YUI #:nodoc:
         end
 
         if $?.exitstatus.nil?
+          puts "Command didn't execute: #{full_command}"
           raise RuntimeError, "Command didn't execute: #{full_command}"
         elsif $?.exitstatus.zero?
           output
