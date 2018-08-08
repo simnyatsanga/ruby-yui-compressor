@@ -101,6 +101,7 @@ module YUI #:nodoc:
 
         if $?.exitstatus.nil?
           puts "Command didn't execute: #{full_command}"
+          puts "YUI Compressor invoked by #{caller}"
           raise RuntimeError, "Command didn't execute: #{full_command}"
         elsif $?.exitstatus.zero?
           output
