@@ -85,7 +85,8 @@ module YUI #:nodoc:
     def compress(stream_or_string)
       streamify(stream_or_string) do |stream|
         tempfile = Tempfile.new('yui_compress')
-        tempfile.write stream.read
+        read_stream = stream.read
+        tempfile.write read_stream
         tempfile.flush
         full_command = "%s %s" % [command, tempfile.path]
 
@@ -101,7 +102,7 @@ module YUI #:nodoc:
 
         if $?.exitstatus.nil?
           puts "Command didn't execute: #{full_command}"
-          puts "YUI Compressor invoked by #{caller}"
+          puts "Stream to be compressed was #{read_stream}"
           raise RuntimeError, "Command didn't execute: #{full_command}"
         elsif $?.exitstatus.zero?
           output
